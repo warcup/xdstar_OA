@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Templets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Typename</th>
+      <th>Stutus</th>
+      <th>create time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @templets.each do |templet| %>
+      <tr>
+        <td><%= templet.typename %></td>
+        <td><%= templet.stutus %></td>
+        <td><%= templet.created_at%></td>
+        <td><%= link_to 'Show', templet %></td>
+        <td><%= link_to 'Edit', edit_templet_path(templet) %></td>
+        <td><%= link_to 'Destroy', templet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Templet', new_templet_path %>

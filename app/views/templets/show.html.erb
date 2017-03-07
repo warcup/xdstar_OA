@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Typename:</strong>
+  <%= @templet.typename %>
+</p>
+
+<p>
+  <strong>Stutus:</str ong>
+  <%= @templet.stutus %>
+</p>
+
+<p>
+<strong>flowpath:</strong>
+</br>
+<% @templet.flowpaths.each do |flowpath|%>
+  <tr>
+    <td><%= flowpath.user_id%></td>
+    <td><%= flowpath.sequence%>
+  </tr>
+  </br>
+<%end%> 
+</p>
+<%= link_to 'Edit', edit_templet_path(@templet) %> |
+<%= link_to 'Back', templets_path %>

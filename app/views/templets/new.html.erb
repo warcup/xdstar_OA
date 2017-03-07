@@ -1,0 +1,83 @@
+<h1>New Templet</h1>
+<%= simple_form_for @templet do |f| %>
+  <% if @templet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@templet.errors.count, "error") %> prohibited this templet from being saved:</h2>
+
+      <ul>
+      <% @templet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="actions">
+        <input type="submit" name="commit" value="Create Templet" data-disable-with="Create Templet" />
+          </div>
+
+            <div class="field">
+                  <label for="templet_typename">Typename</label>
+                      <input type="text" name="templet[typename]" id="templet_typename" />
+                        </div>
+                          
+                              <label for="templet_flowpaths_attributes_0_user_id">User</label>
+                              </br>
+                                   
+
+
+
+
+  <input name="" type="button" value="添加人员" onClick="AddInput()" /> 
+  <input name="" type="button" value="删减人员" onClick="SubInput()" /> 
+
+</br>
+
+<script type="text/javascript">
+
+var i = 1;
+function AddInput(){
+  TemO=document.getElementById("new_templet");  
+  var user_strname =  "templet[flowpaths_attributes][" + i + "][user_id]" ;
+  var user_strid = "templet_flowpaths_attributes_"+i+"_user_id"
+    var newInput1 = document.createElement("input"); 
+  newInput1.type = "input";
+  newInput1.name = user_strname;
+  newInput1.id = user_strid;
+
+  var sequence_strname =  "templet[flowpaths_attributes][" + i + "][sequence]" ;
+  var sequence_strid = "templet_flowpaths_attributes_"+i+"_sequence";
+  var newInput2 = document.createElement("input"); 
+  newInput2.type = "input";
+  newInput2.name = sequence_strname;
+  newInput2.id = sequence_strid;
+  newInput2.value = i;
+  newInput2.style.display='none';
+
+  TemO.appendChild(newInput1);
+  TemO.appendChild(newInput2); 
+
+
+
+  var newline= document.createElement("br");  
+          TemO.appendChild(newline);  
+
+          i++; 
+}
+function SubInput(){
+  if(i>1){
+      i--
+      var user_strid ="templet_flowpaths_attributes_"+i+"_user_id";
+      var sequence_strid = "templet_flowpaths_attributes_"+i+"_sequence"
+      var Temo = document.getElementById("new_templet");
+      var newInput1 = document.getElementById(user_strid);
+      var newInput2 = document.getElementById(sequence_strid);
+      TemO.removeChild(newInput1); 
+      TemO.removeChild(newInput2); 
+
+  }else
+  {alert("NO ONE")}
+}
+ </script>
+
+<% end %>
+<%= link_to 'Back', templets_path %>

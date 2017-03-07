@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  templet: one
+  user: one
+  sequence: 1
+
+two:
+  templet: two
+  user: two
+  sequence: 1
